@@ -1,18 +1,22 @@
+// creo una tabla (con su estilo) donde se mostará todo lo que quiero mostrar como resultado.
 <table style="width: 100%; border: 1px solid black;">
-  <tr>
+  <tr> //texto que quiero mostrar como cabecera a los datos
     <th>Estado Compra</th>
     <th>Productos + Descripción </th>
   </tr>
+
   <tr *ngFor="let producto of productos; index as i;">
     <td>
+      //creo los radiobutton, con su nombre para que aparezcan en el resultado final;
       <input type="radio" name="comprado-{{i}}" [(ngModel)]="producto.comprado" [value]=true> Si
       <input type="radio" name="comprado-{{i}}" [(ngModel)]="producto.comprado" [value]=false> No
     </td>
+    //qué quiero que aparezca en la tabla.
     <td>{{producto.titulo}}</td>
     <td>{{producto.cuerpo}}</td>
   </tr>
 </table>
-
+// fuera de la tabla mostraré el ngIf para saber si ha sido o no comprado x producto.
 <h2>Estado de compra del producto 1:</h2>
 <h3 *ngIf="productos[0].comprado">Si</h3>
 <h3 *ngIf="!productos[0].comprado">No</h3>
