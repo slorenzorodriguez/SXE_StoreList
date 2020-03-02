@@ -13,23 +13,27 @@ export class ListaProductos implements OnInit {
   constructor() {
     const producto1 = {
       titulo: 'Nombre Producto 1',
-      cuerpo: `Descripción Producto 1 `,
-      comprado: true
+      cuerpo: `Whisky Irlandés`,
+      precio: `25$ `,
+      img: 'assets/image/whisky2.png',
     };
     const producto2 = {
       titulo: 'Nombre Producto 2',
-      cuerpo: `Descripción Producto 2`,
-      comprado: false,
+      cuerpo: `Whisky Escocés`,
+      precio: `23$ `,
+      img: 'assets/image/whisky1.png',
     };
     const producto3 = {
       titulo: 'Nombre Producto 3',
-      cuerpo: `Desripción Producto 3`,
-      comprado: false,
+      cuerpo: `Vino Gallego`,
+      precio: `20$ `,
+      img: 'assets/image/wine.png',
     };
     const producto4 = {
       titulo: 'Nombre Producto 4',
-      cuerpo: `Descripción Producto 4`,
-      comprado: true,
+      cuerpo: `Vodka Ruso Imp.`,
+      precio: `15$`,
+      img: 'assets/image/vodka.png',
     };
     this.productos = [];
     this.productos.push(producto1);
@@ -41,4 +45,17 @@ export class ListaProductos implements OnInit {
   ngOnInit() {
   }
 
+  seleccionarCompra(index) {
+    // EN VARIAS LINEAS
+    /*
+    if (this.productos[index].comprado) {
+      this.productos[index].comprado = false;
+    } else {
+      this.productos[index].comprado = true;
+    }
+     */
+    // EN UNA LINEA
+    this.productos[index].comprado = !this.productos[index].comprado;
+  }
 }
+
